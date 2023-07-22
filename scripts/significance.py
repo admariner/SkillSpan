@@ -26,13 +26,12 @@ if __name__ == "__main__":
         source, eval, model, split, _ = file.split(".")
         with open("metrics/" + file, "r") as f:
             results = json.load(f)
+            k = model2idx[str(eval + "-" + model)]
             if split == "dev":
-                k = model2idx[str(eval + "-" + model)]
                 dev[k] = np.array(
                     results["1. Strict, Combined Evaluation (official):"]["FB1"]
                 )
             else:
-                k = model2idx[str(eval + "-" + model)]
                 test[k] = np.array(
                     results["1. Strict, Combined Evaluation (official):"]["FB1"]
                 )

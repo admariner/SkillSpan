@@ -30,7 +30,7 @@ def evaluate(
 
     metrics = defaultdict(lambda: defaultdict(list))
 
-    for i, output in enumerate(outputs):
+    for output in outputs:
         for k, v in output.items():
             acc = float(v[0][11:-2])  # Accuracy:  99.75%;
             metrics[k]["Accuracy"].append(acc)
